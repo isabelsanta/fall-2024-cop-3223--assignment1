@@ -10,12 +10,17 @@
 double calculateDistance();
 double calculatePerimeter();
 double calculateArea();
+double calculateWidth();
+double calculateHeight();
+
 
 int main(int argc, char **argv) {
 
     calculateDistance();
     calculatePerimeter();
     calculateArea();
+    calculateWidth();
+    calculateHeight();
 
     return 0;
     }
@@ -25,12 +30,12 @@ double calculateDistance(){
     double x1, y1, x2, y2, distance;
 
     //ask user to input the two points
-    printf("Please enter x1 and y1: ");
+    printf("Please enter x1 and x2: ");
     scanf("%lf", &x1);
-    scanf("%lf", &y1);
-
-    printf("Please enter x2 and y2: ");
     scanf("%lf", &x2);
+
+    printf("Please enter y1 and y2: ");
+    scanf("%lf", &y1);
     scanf("%lf", &y2);
 
     //the distance formula for a circle
@@ -39,7 +44,6 @@ double calculateDistance(){
     printf("Point #1 entered: x1 = %lf; y1 = %lf\n", x1, y1);
     printf("Point #2 entered: x2 = %lf; y2 = %lf\n", x2, y2);
     printf("The distance between the two points is %lf\n", distance);
-
 
     return distance;
 
@@ -64,4 +68,24 @@ double calculateArea(){
     printf("The area of the city encompassed by your request is %lf\n", area);
 
     return 2.0;
+}
+
+double calculateWidth(){
+
+    double distance = calculateDistance();
+    double width = distance * 2;
+
+    printf("The width of the city encompassed by your request is %lf\n", width);
+
+    return 5.0;
+}
+
+double calculateHeight(){
+
+    double distance = calculateDistance();
+    double height = distance * 2;
+
+    printf("The height of the city encompassed by your request is %lf\n", height);
+
+    return 5.0;
 }
