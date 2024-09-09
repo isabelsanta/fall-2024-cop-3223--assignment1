@@ -5,8 +5,8 @@
 
 #define PI 3.14159
 
-// Function to calculate the distance between two points in a circle
-
+// define my functions first so that main will recognize them
+double askForUserInput();
 double calculateDistance();
 double calculatePerimeter();
 double calculateArea();
@@ -15,7 +15,7 @@ double calculateHeight();
 
 
 int main(int argc, char **argv) {
-
+//call my functions
     calculateDistance();
     calculatePerimeter();
     calculateArea();
@@ -25,9 +25,10 @@ int main(int argc, char **argv) {
     return 0;
     }
 
-double calculateDistance(){
+double askForUserInput(){
+
     //define my variables
-    double x1, y1, x2, y2, distance;
+    double x1, y1, x2, y2, userInput;
 
     //ask user to input the two points
     printf("Please enter x1 and x2: ");
@@ -39,10 +40,18 @@ double calculateDistance(){
     scanf("%lf", &y2);
 
     //the distance formula for a circle
-    distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+    userInput = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
 
     printf("Point #1 entered: x1 = %lf; y1 = %lf\n", x1, y1);
     printf("Point #2 entered: x2 = %lf; y2 = %lf\n", x2, y2);
+
+    return userInput;
+}
+
+double calculateDistance(){
+
+    double distance = askForUserInput();
+
     printf("The distance between the two points is %lf\n", distance);
 
     return distance;
@@ -50,6 +59,7 @@ double calculateDistance(){
 }
 
 double calculatePerimeter() {
+
 
     //define my variables and call the calculateDistance function
     double distance = calculateDistance();
@@ -62,8 +72,9 @@ double calculatePerimeter() {
 
 double calculateArea(){
 
+
     double distance = calculateDistance();
-    double area = pow(distance * PI, 2);
+    double area = pow((distance/2) * PI, 2);
 
     printf("The area of the city encompassed by your request is %lf\n", area);
 
@@ -72,8 +83,10 @@ double calculateArea(){
 
 double calculateWidth(){
 
-    double distance = calculateDistance();
-    double width = distance * 2;
+    double x1, x2;
+
+    askForUserInput();
+    double width = fabs(x2-x1);
 
     printf("The width of the city encompassed by your request is %lf\n", width);
 
@@ -82,8 +95,10 @@ double calculateWidth(){
 
 double calculateHeight(){
 
-    double distance = calculateDistance();
-    double height = distance * 2;
+    double y1, y2;
+
+    askForUserInput();
+    double height = fabs(y2-y1);
 
     printf("The height of the city encompassed by your request is %lf\n", height);
 
